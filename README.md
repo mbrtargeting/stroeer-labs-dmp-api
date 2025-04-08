@@ -12,15 +12,37 @@ The IAB Classifier API provides content categorization services based on the IAB
 
 ## Authentication
 
-Our API uses **Authentication** to secure access. Here’s what you need to know:
+Our API uses token-based authentication to secure access. Here’s what you need to know:
 
 ### How It Works
 
-**Authentication Type**:
-You need to obtain a Token to access the API. To obtain your token, please contact us via email at myemail@gmail.com. Once you receive the token, include it in your API requests as described below.
+**Authentication Flow**:  
+To access our API, you must first obtain a token from an external **Auth API**. If you have not received your credentials yet, please [contact us via our website](https://osdatasolutions.de/#kontakt). Use these credentials to authenticate with the Auth API.
 
-**Token Provision**:
-Tokens are provided via email and must be used as received.
+**Token Provision**:  
+Tokens are obtained by sending your provided credentials to the Auth API and must be used as received.
+
+- **Auth API Endpoint**:  
+  ```bash
+  POST https://api.osdata.solutions/auth
+  ```
+
+- **Request Payload**:
+  ```json
+  {
+    "email": "foo@osdata.solutions",
+    "password": "your-password"
+  }
+  ```
+
+- **Response Payload**:
+  ```json
+  {
+    "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6...",
+    "expiresIn": 3600 // In seconds
+  }
+  ```
+*Security Tip*: Keep your email and password safe—do not store them in code or version control.
 
 ### How to Include the Token
 
