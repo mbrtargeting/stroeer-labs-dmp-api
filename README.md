@@ -72,7 +72,7 @@ Tokens are obtained by sending your provided credentials to the Auth API and mus
 
 ### Base URL
 
-- **API Base URL**: `TBD`
+- **API Base URL**: `https://api.dmp.m6r.eu/api/v1/contextual`
 
 ### HTTP Method
 
@@ -117,7 +117,7 @@ All relevant information for the request is sent as fields in the JSON body.
 
 - **Successful Request Example** (Omitting `trafficType` - default **SITE**)  
 ```bash
-curl -X POST "TBD" \
+curl -X POST "https://api.dmp.m6r.eu/api/v1/contextual" \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer ${CONTEXTUAL_API_TOKEN}" \
   -d '{
@@ -127,7 +127,7 @@ curl -X POST "TBD" \
 
 - **Successful Request Example** (Setting `trafficType` explicitly)  
 ```bash
-curl -X POST "TBD" \
+curl -X POST "https://api.dmp.m6r.eu/api/v1/contextual" \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer ${CONTEXTUAL_API_TOKEN}" \
   -d '{
@@ -138,7 +138,7 @@ curl -X POST "TBD" \
 
 - **Error Request Example:**  (MAID traffic expected)
 ```bash
-curl -X POST "TBD" \
+curl -X POST "https://api.dmp.m6r.eu/api/v1/contextual" \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer ${CONTEXTUAL_API_TOKEN}" \
   -d '{
