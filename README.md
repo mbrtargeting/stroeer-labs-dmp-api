@@ -17,14 +17,14 @@ Our API uses token-based authentication to secure access. Here’s what you need
 ### How It Works
 
 **Authentication Flow**:  
-To access our API, you must first obtain a token from an external **Auth API**. If you have not received your credentials yet, please [contact us via our website](https://osdatasolutions.de/#kontakt). Use these credentials to authenticate with the Auth API.
+To access our API, you must first obtain a token from the **Auth API**. If you have not received your credentials yet, please [contact us via our website](https://osdatasolutions.de/#kontakt). Use these credentials to authenticate with the Auth API.
 
 **Token Provision**:  
 Tokens are obtained by sending your provided credentials to the Auth API and must be used as received.
 
 - **Auth API Endpoint**:  
   ```bash
-  POST https://api.osdata.solutions/auth
+  POST https://api.dmp.m6r.eu/auth
   ```
 
 - **Request Payload**:
