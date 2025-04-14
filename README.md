@@ -88,8 +88,8 @@ All relevant information for the request is sent as fields in the JSON body.
 
 | Field Name |  Data Type | Description  | Requirement |  
 | ---- |  ---- | ----  | ---- |  
-| `url` | String | An absolute URL including a scheme (http:// or https://), or a MAID in case "trafficType": "MAID".  Note that setting this field to a MAID with a different traffic type will result in HTTP 400 response and using a URL when the traffic type is MAID will always result in a response with no contextual information provided. | **Required** |
-| `trafficType` | Enum | Possible values: <ul><li>`SITE` - normal page opened in a browser regardless of device</li><li>`MAID` - mobile app traffic where URL cannot be determined/shared and therefore the mobile app ID is provided for contextual classification</li><li>`CTV` - traffic from smart/internet-connected TV</li></ul> | **Optional (SITE by default)** |
+| `url` | String | An absolute URL including a scheme (http:// or https://), or a APP in case "trafficType": "APP".  Note that setting this field to a APP with a different traffic type will result in HTTP 400 response and using a URL when the traffic type is APP will always result in a response with no contextual information provided. | **Required** |
+| `trafficType` | Enum | Possible values: <ul><li>`SITE` - normal page opened in a browser regardless of device</li><li>`APP` - mobile app traffic where URL cannot be determined/shared and therefore the mobile app ID is provided for contextual classification</li><li>`CTV` - traffic from smart/internet-connected TV</li></ul> | **Optional (SITE by default)** |
 
 **Example JSON Payloads:**
 
@@ -102,7 +102,7 @@ All relevant information for the request is sent as fields in the JSON body.
 
 // For App traffic
 {
-  "trafficType": "MAID",
+  "trafficType": "APP",
   "url": "wetter.at_app"
 }
 ```
@@ -136,14 +136,14 @@ curl -X POST "https://api.dmp.m6r.eu/api/v1/contextual" \
       }'
 ```
 
-- **Error Request Example:**  (MAID traffic expected)
+- **Error Request Example:**  (**APP** traffic expected)
 ```bash
 curl -X POST "https://api.dmp.m6r.eu/api/v1/contextual" \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer ${CONTEXTUAL_API_TOKEN}" \
   -d '{
         "url": "https://www.sports.com",
-        "trafficType": "MAID"
+        "trafficType": "APP"
       }'
 ```
 
@@ -254,7 +254,7 @@ These codes indicate that there was a problem while trying to classify the url. 
 
 | Status |  Default |  
 | ---- |  ---- |  
-| `SUCCESS` | <ul><li>86400 (1 day) for homepages / Second-level domains</li><li>2592000 (30 days) for subpages / article pages and MAIDs</li></ul> |  
+| `SUCCESS` | <ul><li>86400 (1 day) for homepages / Second-level domains</li><li>2592000 (30 days) for subpages / article pages and APPs</li></ul> |  
 | `IN-PROGRESS` | 300 (5 minutes) |  
 | `IGNORED` | 86400 (1 day) |  
 | `FAILURE` | `MAX_INT` |  
