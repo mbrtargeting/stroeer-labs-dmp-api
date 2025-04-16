@@ -24,7 +24,7 @@ Tokens are obtained by sending your provided credentials to the Auth API and mus
 
 - **Auth API Endpoint**:  
   ```bash
-  POST https://api.dmp.m6r.eu/auth
+  POST https://api.dmp.m6r.eu/api/v1/auth
   ```
 
 - **Request Payload**:
