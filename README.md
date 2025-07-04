@@ -39,9 +39,14 @@ Tokens are obtained by sending your provided credentials to the Auth API and mus
   ```json
   {
     "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6...",
-    "expiresIn": 3600 // In seconds
+    "expiresIn": -1 // Timestamp, this field will soon be deprecated. Please use the expiration date (exp) available in the token payload.
   }
   ```
+
+For more information on the token, please check the [JWT documentation](https://jwt.io/).
+
+
+
 *Security Tip*: Keep your email and password safe—do not store them in code or version control.
 
 ### How to Include the Token
